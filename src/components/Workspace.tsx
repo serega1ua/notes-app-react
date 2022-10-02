@@ -17,7 +17,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "2px solid red",
   boxShadow: 24,
   p: 4,
 };
@@ -75,12 +75,15 @@ const Workspace = ({ type }: IWorkspaceProps) => {
             open={isOpen}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+            aria-describedby="dialog1Desc"
+            role="alertdialog"
+            aria-modal="true"
           >
-            <Box sx={style}>
+            <Box sx={style} role="document" tabIndex={0}>
               <Typography id="modal-modal-title" variant="h6" component="h2">
-                Are you sure that you wanna remove the note?
+                Are you sure you wanna remove the note?
               </Typography>
+                <p id="dialog1Desc">To remove, click the OK button</p>
               <Button onClick={() => deleteNoteAndNavigate(true)}>
                 Yes, remove
               </Button>

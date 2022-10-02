@@ -18,12 +18,12 @@ const Navbar = () => {
       position="fixed"
       sx={{
         width: `calc(100% - ${drawerWidth}px)`,
-        ml: `${drawerWidth}px`,
+        ml: `${drawerWidth}px`
       }}
       role="banner"
     >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container maxWidth="xl" role="none">
+        <Toolbar disableGutters role="none">
           <h1 className="sr-only">iNotes app</h1>
           <Typography
             variant="h6"
@@ -33,16 +33,17 @@ const Navbar = () => {
             aria-label="iNotes"
             sx={{
               mr: 2,
+              backGroundColor: "transparent",
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#fff",
               textDecoration: "none",
               alignItems: "center",
             }}
           >
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} role="img" />
             iNotes
           </Typography>
 
@@ -71,7 +72,8 @@ const Navbar = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              backGroundColor: "transparent",
+              color: "#fff",
               textDecoration: "none",
             }}
           >

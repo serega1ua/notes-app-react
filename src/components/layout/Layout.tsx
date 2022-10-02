@@ -31,10 +31,11 @@ const Layout = ({ children }: IProps) => {
       display="flex"
       flexDirection="column"
       width={`calc(100% - ${drawerWidth})`}
+      role="none"
     >
       <Navbar />
       <main>
-        <Box display="flex" flexDirection="row" justifyContent="flex-end">
+        <Box display="flex" flexDirection="row" justifyContent="flex-end" role="none">
           <Sidebar notes={notes} />
           {children}
         </Box>
