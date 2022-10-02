@@ -6,7 +6,7 @@ import Navbar from "../Navbar";
 import Sidebar from "../Sidebar";
 
 interface IProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode; //необязательный параметр
 }
 
 const Layout = ({ children }: IProps) => {
@@ -22,9 +22,10 @@ const Layout = ({ children }: IProps) => {
 
   const drawerWidth = 300;
 
-  useEffect(() => {
+  useEffect(() => { //при componentDidMount вызовет  getNotesFromStorage();
     getNotesFromStorage();
-  }, []);
+  }, []); // componentDidUpdate, если задано значение в массиве
+          // componentWillUnmount = useEffect(() => { return () => {/тут моя функция, что при componentWillUnmount выполнится /} })
   return (
     <Box
       display="flex"

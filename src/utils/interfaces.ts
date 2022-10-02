@@ -5,8 +5,8 @@ export interface INote {
   id: number;
 }
 
-export interface IContext {
-  notes: INote[];
+export interface IContext { //требования к обьекту констекста
+  notes: Array<INote>;//массив должен содержать только объект/ы типа INote, это аналогично INote[]
   isOpen: boolean;
   setIsOpen: Function;
   addNewNote: (note: INote) => void;

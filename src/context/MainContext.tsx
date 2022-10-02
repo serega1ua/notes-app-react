@@ -2,11 +2,12 @@ import React, { createContext, useState } from "react";
 import { INote, IContext } from "../utils/interfaces";
 
 interface IProps {
-  children: React.ReactNode;
+  children: React.ReactNode; //ts-тип для реакт-компонента
 }
 
-export const Context = createContext<IContext>({
-  notes: [{ name: "String", desc: "sdsd", date: new Date(Date.now()), id: 1 }],
+//шаблон опций контекста
+export const Context = createContext<IContext>({ //метод принимает объект с даннми контекста, которые будут получать компоненты
+  notes: [{ name: "Template name", desc: "for example", date: new Date(Date.now()), id: 1 }],
   isOpen: false,
   setIsOpen: () => {
     console.log("open/disabled modal");
@@ -25,9 +26,9 @@ export const Context = createContext<IContext>({
   },
 });
 
-const MainContext = ({ children }: IProps) => {
+const MainContext = ({ children }: IProps) => { //интерфейс TS
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [notes, setNotes] = useState<INote[]>([
+  const [notes, setNotes] = useState<Array<INote>>([
     {
       name: "Note 1",
       date: new Date(Date.now()),
@@ -49,7 +50,7 @@ const MainContext = ({ children }: IProps) => {
   ]);
 
   const addNewNote = (note: INote) => {
-    setNotes((prevNotes: INote[]) => [...prevNotes, note]);
+    setNotes((prevNotes: INote[]) => [...prevNotes, note]); //setNotes в хуке так построен, что может брать как аргумент и note, и колл-бек
   };
   const clearNotes = () => {
     setNotes([]);
@@ -62,7 +63,8 @@ const MainContext = ({ children }: IProps) => {
     });
   };
   return (
-    <Context.Provider
+    <Context.Provider /* отдаю данные в Context.Provider, это уже актуальные данные
+                         используется для передачи данных в контекст, откуда его получит лбой компонент*/
       value={{
         isOpen,
         setIsOpen,

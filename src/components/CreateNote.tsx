@@ -2,10 +2,10 @@ import { Box, Button, TextField, Modal, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { Context } from "../context/MainContext";
 import { useNavigate } from "react-router-dom";
-import { INote } from "../utils/interfaces";
+import { INote, IContext } from "../utils/interfaces";
 
 const CreateNote = () => {
-  const { addNewNote, notes } = useContext(Context);
+  const { addNewNote, notes } = useContext<IContext>(Context);
   const [formData, setFormData] = useState<INote>({
     name: "",
     desc: "",
@@ -26,7 +26,7 @@ const CreateNote = () => {
     navigate(`/note/${formData.id}`);
   };
   const handleForm = () => {
-    if (formData.name.length > 5) {
+    if (formData.name.length > 1) {
       setIsDataRight((prevData) => ({ ...prevData, name: true }));
       createNewNote();
     } else {
@@ -43,11 +43,12 @@ const CreateNote = () => {
     >
       <TextField
         value={formData.name}
-        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })} //введенное пользователем e.target.value
         margin="normal"
         id="standard-basic"
         label="Name:"
         variant="standard"
+        helperText={"Name needs at least 2 symbols"}
       />
       <TextField
         value={formData.desc}

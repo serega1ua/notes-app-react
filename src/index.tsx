@@ -1,24 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Workspace from "./components/Workspace";
 import MainContext from "./context/MainContext";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement // TS тип указываем, который получаем
 );
 root.render(
-  <MainContext>
-    <Router>
+  <MainContext> // реакт-контекст, встроенный state-менеджер, чтобы не про-кидывать пропсы вниз между компонентами
+    <Router> //создает SPA без перезагрузки страницы
       <Routes>
         <Route 
-        path="/" 
+        path="/" //для нас это http://localhost:3001/, т.е. КУДА рендерить
         element={
-          <Layout>
+          <Layout> {/*именно этот рендерится, ЧТО рендерить*/}
             <Workspace type="WELCOME" />
           </Layout>
         } />
@@ -39,8 +37,3 @@ root.render(
     </Router>
   </MainContext>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
