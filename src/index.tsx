@@ -10,8 +10,8 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement // TS тип указываем, который получаем
 );
 root.render(
-  <MainContext> // реакт-контекст, встроенный state-менеджер, чтобы не про-кидывать пропсы вниз между компонентами
-    <Router> //создает SPA без перезагрузки страницы
+  <MainContext>  {/* реакт-контекст, встроенный state-менеджер, чтобы не про-кидывать пропсы вниз между компонентами*/}
+    <Router>  {/*создает SPA без перезагрузки страницы*/}
       <Routes>
         <Route 
         path="/" //для нас это http://localhost:3001/, т.е. КУДА рендерить

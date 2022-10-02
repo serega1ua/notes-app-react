@@ -1,7 +1,5 @@
-import { Box } from "@mui/material";
 import { INote } from "../utils/interfaces";
 import ListItem from "./ListItem";
-import { NavLink } from "react-router-dom";
 import React from "react";
 
 interface IListProps {

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import AdbIcon from "@mui/icons-material/Adb";
-import Delete from "@mui/icons-material/Delete";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import IconButton, { Button } from "@mui/material";
 import { Context } from "../context/MainContext";
 import { IContext } from "../utils/interfaces";
-import { Box } from "@mui/material";
 
 const Navbar = () => {
   const drawerWidth = 300;

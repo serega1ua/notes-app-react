@@ -6,7 +6,7 @@ interface IProps {
 }
 
 //шаблон опций контекста
-export const Context = createContext<IContext>({ //метод принимает объект с даннми контекста, которые будут получать компоненты
+export const Context = createContext<IContext>({ //метод принимает объект с данными контекста, которые будут получать компоненты
   notes: [{ name: "Template name", desc: "for example", date: new Date(Date.now()), id: 1 }],
   isOpen: false,
   setIsOpen: () => {
